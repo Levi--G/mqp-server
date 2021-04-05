@@ -189,7 +189,8 @@ var SocketServer = function(server){
 	}, 5 * 60 * 1000);
 
 	var settings = {
-		autoAcceptConnections : true
+		autoAcceptConnections : true,
+		disableSearch : nconf.get('apis:YT:disableSearch') ? nconf.get('apis:YT:disableSearch') : false
 	};
 
 	if (server){
@@ -1742,6 +1743,12 @@ var SocketServer = function(server){
 					if (cid){
 						searchFunc = YT.getVideo;
 						query = cid;
+					} else if (settings.disableSearch){
+						returnObj.data = {
+							error: "SearchDisabled"
+						}
+						socket.sendJSON(returnObj);
+						return;
 					}
 
 					searchFunc(query, function(err, res){

@@ -6486,6 +6486,13 @@
 				}*/
 
 				MP.youtubeSearch($(this).val(), function(err, res){
+					if (err){
+						if (err == "SearchDisabled"){
+							MP.makeAlertModal({
+								content: "Youtube Searching has been disabled"
+							})
+						}
+					}
 					MP.session.searchResults = res;
 					MP.session.viewedPl = null;
 					MP.applyModels();

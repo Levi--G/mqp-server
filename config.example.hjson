@@ -127,6 +127,7 @@
 		YT: {
 			key: "" // Required api key in order for YouTube search to work.
 			restrictSearchToMusic: false
+			disableSearch : false
 		}
 		SC: {
 			key: ""
