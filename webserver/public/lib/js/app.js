@@ -1926,7 +1926,7 @@
 				MP.emotes['Basic'][e] = MP.emotes['Basic'][e] || { url: 'https://raw.githubusercontent.com/Ranks/emojify.js/master/dist/images/basic/' + e + '.png', };
 			 }).done(function(){
 	            //TastyCat
-			 	$.getJSON("https://emotes.tastycat.org/emotes-full.json", function(data) {
+			 	$.getJSON("https://catsaretasty.github.io/emotes/emotes-full.json", function(data) {
 			 		for(var e in data.emotes)
 		 				MP.emotes["TastyCat"][e.toLowerCase().replace('&', 'n')] = MP.emotes["TastyCat"][e.toLowerCase().replace('&', 'n')] || { url: data.emotes[e].url, style: 'max-width: ' + data.emotes[e].width + 'px ;max-height: ' + data.emotes[e].height + 'px;'};
 			    }).done(function(){
